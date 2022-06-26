@@ -1,4 +1,4 @@
-# Sagemaker Tutorials
+# Sagemaker PyTorch Lightning Tutorials
 
 This is a tutorial on how to train and deploy a model in Sagemaker WITHOUT using notebooks (Sagemaker Studio). We will train and deploy a MNIST classifier. We also show how to install external libraries (pytorch lightning) in the process.
 
