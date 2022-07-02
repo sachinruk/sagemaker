@@ -14,23 +14,8 @@ ROLE_NAME=SageMakerRole_MNIST
 POLICY=arn:aws:iam::aws:policy/AmazonS3FullAccess
 POLICY2=arn:aws:iam::aws:policy/CloudWatchFullAccess
 
-# Creates a AWS policy that allows the role to interact
-# with ANY S3 bucket
-cat <<EOF > ./assume-role-policy-document.json
-{
-	"Version": "2012-10-17",
-	"Statement": [{
-		"Effect": "Allow",
-		"Principal": {
-			"Service": "sagemaker.amazonaws.com"
-		},
-		"Action": "sts:AssumeRole"
-	}]
-}
-EOF
-
 # Creates the role
-aws iam create-role --role-name ${ROLE_NAME} --assume-role-policy-document file://./lesson_02_iam/assume-role-policy-document.json
+aws iam create-role --role-name ${ROLE_NAME} --assume-role-policy-document ./lesson_02_iam/assume-role-policy-document.json
 
 # attaches the S3 full access policy to the role
 aws iam attach-role-policy --policy-arn ${POLICY}  --role-name ${ROLE_NAME}
